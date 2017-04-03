@@ -76,7 +76,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
   func refreshControlAction(_ refreshControl: UIRefreshControl) {
     let apiKey = "3c88efa87d5b0c99424a9a59352da5f0"
     let url = URL(string: "https://api.themoviedb.org/3/movie/\(endpoint!)?api_key=\(apiKey)")
-    let request = URLRequest(url: url!)
+    let request = URLRequest(url: url!, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
     let session = URLSession(
         configuration: URLSessionConfiguration.default,
         delegate: nil,
